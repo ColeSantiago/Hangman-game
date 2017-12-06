@@ -3,49 +3,65 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 	let gameWords = ['bowser', 'zelda', 'kirby'];
+
 	let remainingGuesses = 16;
 	let wins = 0;
 
-	let currentWord = gameWords[Math.floor(Math.random() * gameWords.length)];
-	let theGuess = [];
-	let wrongLetters = [];
+	function runWord() {
+		let currentWord = gameWords[Math.floor(Math.random() * gameWords.length)];
+	
+
+	var theGuess = [];
+
+	for (let i = 0; i < currentWord.length; i++) {
+
+    theGuess[i] = "_";
+
+  	}
+
+	const wrongLetters = [];
+
+
 
 	guessInput = document.getElementById("#letters");
+				 window.addEventListener("keyup", function(event) {
+            	 let userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
-	
-		 for (i = 0; i < currentWord.length; i++) {
-            window.addEventListener("keyup", function(event) {
-            	let userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+    	
 
-            	if (userGuess === "b" || userGuess === "o" || userGuess === "w" || userGuess === "s" || userGuess === "e" || userGuess === "r") {
+            	if (userGuess === currentWord ) {
             		theGuess.push(userGuess);
+            		remainingGuesses--;
             	}
 
             	else {
             		theGuess.push(wrongLetters);
+            		remainingGuesses--;
             	}
+
+            	if (remainingGuesses === 0) {
+            		alert("Try Again");
+            		remainingGuesses = 16;
+            		
+
+            	}
+
+      
         
 
-				let html = "<p>Press any key to get started!</p>" + "<p> Wins: " + wins + "</p>" + "<p>Current Word</p>" + "<p>" + userGuess + "</p>" +"<p>Number of guesses remaining: " + remainingGuesses + "</p>" + "<p>Letters already guessed: " + theGuess + "</p>";
+				let html = "<p>Press any key to get started!</p>" + "<p> Wins: " + wins + "</p>" + "<p>Current Word</p>" + "<p>" + theGuess + "</p>" +"<p>Number of guesses remaining: " + remainingGuesses + "</p>" + "<p>Letters already guessed: " + wrongLetters + "</p>";
 
 	
 				document.querySelector("#game").innerHTML = html;
 
+			});
 
-         });
+	}
 
+runWord();
 
-
-       
-       } 
-
-    
 
 });
-
-
-
-
 
 
 
