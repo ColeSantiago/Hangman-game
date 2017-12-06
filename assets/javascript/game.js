@@ -2,128 +2,76 @@ document.addEventListener("DOMContentLoaded", function(event) {
   
 
 
-	let gameWords = ['bowser', 'zelda', 'kirby'];
+	const gameWords = ['bowser', 'zelda', 'kirby'];
 
 	let remainingGuesses = 16;
 	let wins = 0;
+	let losses = 0;
+	let currentWord = "";
+	let currentWordLetters = [];
+	let underscoreArray = [];
+	let wrongLetters = [];
 
-	function runWord() {
-		let currentWord = gameWords[Math.floor(Math.random() * gameWords.length)];
-	
+	function startGame () {
+		remainingGuesses = 16;
+		currentWord = gameWords[Math.floor(Math.random() * gameWords.length)];
+		currentWordLetters = currentWord.split ("");
 
-	var theGuess = [];
+		for (let i = 0; i < currentWordLetters.length; i++) {
+			// add _ for each letter in random word
+			underscoreArray.push("_ ");
+		
+		}
+		console.log(remainingGuesses);
+		console.log(currentWordLetters);
+		console.log(currentWord);
+		console.log(underscoreArray);
 
-	for (let i = 0; i < currentWord.length; i++) {
+		// add in html
 
-    theGuess[i] = "_";
-
-  	}
-
-	const wrongLetters = [];
-
-
-
-	guessInput = document.getElementById("#letters");
-				 window.addEventListener("keyup", function(event) {
-            	 let userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-
-    	
-
-            	if (userGuess === currentWord ) {
-            		theGuess.push(userGuess);
-            		remainingGuesses--;
-            	}
-
-            	else {
-            		theGuess.push(wrongLetters);
-            		remainingGuesses--;
-            	}
-
-            	if (remainingGuesses === 0) {
-            		alert("Try Again");
-            		remainingGuesses = 16;
-            		
-
-            	}
-
-      
-        
-
-				let html = "<p>Press any key to get started!</p>" + "<p> Wins: " + wins + "</p>" + "<p>Current Word</p>" + "<p>" + theGuess + "</p>" +"<p>Number of guesses remaining: " + remainingGuesses + "</p>" + "<p>Letters already guessed: " + wrongLetters + "</p>";
+		let html = "<p>Press any key to get started!</p>" + "<p> Wins: " + wins + "</p>" + "<p>Current Word</p>" + "<p>" + theGuess + "</p>" +"<p>Number of guesses remaining: " + remainingGuesses + "</p>" + "<p>Letters already guessed: " + wrongLetters + "</p>";
 
 	
-				document.querySelector("#game").innerHTML = html;
-
-			});
+		document.querySelector("#game").innerHTML = html;
 
 	}
 
-runWord();
+	function checkLetters (letter) {
+		for (let i = 0; i < currentWordLetters.length; i++) {
+
+			if (letter === currentWordLetters[i]) {
+				underscoreArray[i] = letter;
+				console.log(underscoreArray);
+				remainingGuesses--;
+			}
+
+			else {
+				wrongLetters.push(letter);
+				remainingGuesses--;
+			}
+
+			// move letters into wrongLetters array
+			// take away remainingGuesses
+		}
+
+	}
+
+	function checkWin () {
+		// if underscoreArray matches current word letters win++ 
+		// else if remaining guesses = 0 restart game, losses++
+		//else console.log did not win or lose
+
+	}
+
+startGame();
+window.addEventListener("keyup", function(event) {
+	checkLetters(event.key);
+	console.log(event.key);
+	// check for a win
+});
 
 
 });
 
 
-
-
-
-// document.getElementById("fname").addEventListener("keyup", myFunction);
-
-// function myFunction() {
-//     var x = document.getElementById("fname");
-//     x.value = x.value.toUpperCase();
-// }
-
-
-
-	// let word = wordGuesses[Math.floor(Math.random() * wordGuesses.length)];
-	// // let wordLength = word.length; // need something that takes your string and turns it into an array
-	// let guessedLetters = [];
-
-
-	
-
-
-
-
-	// let placeholders = new Array(wordLength + 1).join( '_ ' );
-
-	// console.log(placeholders);
-
-
-	// document.onkeyup = function(event) {
-	// 	let userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-	// 	let usedLetters = String.fromCharCode(event.keyCode).toLowerCase();
-
-
-	//     if (userGuess === wordLength) {
-	//     	guessedLetters.push(userGuess);
-	//         // placeholders = placeholders.replace(placeholders[(word.indexOf(userGuess))], userGuess);
-	//         remainingGuesses--;
-	//         console.log(guessedLetters);
-	        
-
-	// 	} else {
-	// 	    remainingGuesses--;
-	// 	    guessedLetters.push(usedLetters);
-
-
-	// 	} if (remainingGuesses === 0) {
-			
-
-
-	// 	} 
-
-
-
-
-
-	
-
-
-// }
-
-
-
-// });
 	
