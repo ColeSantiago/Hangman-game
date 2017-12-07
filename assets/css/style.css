@@ -152,18 +152,19 @@ h2 {
 
 }
 
-.shyguy-photo {
+.yoshi-photo {
 	width: 200px;
 	right: -726px;
+	top: 98px;
 	visibility: hidden;
 
 }
 
 
-.triforce-photo {
+.gameboy-photo {
 	width: 200px;
 	right: -530px;
-	top: -80px;
+	top: 51px;
 	visibility: hidden;
 
 }

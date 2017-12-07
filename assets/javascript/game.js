@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   
 
 	// potential words
-	const gameWords = ['bowser', 'zelda', 'kirby', 'triforce', 'shyguy', 'sonic'];
+	const gameWords = ['bowser', 'zelda', 'kirby', 'gameboy', 'yoshi', 'sonic'];
 
 	// getting the variables and empty arrays ready
 	let remainingGuesses = 15;
@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	let kirbySound = new Audio('assets/javascript/audio/Kirby-Swallowing.wav');
 	let bowserSound = new Audio('assets/javascript/audio/Bowser1.wav');
 	let zeldaSound = new Audio('assets/javascript/audio/MC_Zelda_Hey.wav');
-	let triforceSound = new Audio('assets/javascript/audio/OOT_HandTriforce.wav');
-	let shyguySound = new Audio('assets/javascript/audio/mparty8_shy_guy_03.wav');
+	let gameboySound = new Audio('assets/javascript/audio/Gameboy-Startup Sound.mp3');
+	let yoshiSound = new Audio('assets/javascript/audio/ssbm_yoshi_07.wav');
 	let sonicSound = new Audio('assets/javascript/audio/S3K_AC.wav');
 
 	// Win Sounds
@@ -70,33 +70,36 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 	}
 
-
+ 
 
 	function checkLetters (letter) {
 
-		if (currentWordLetters.indexOf(letter) === -1) {
-			wrongLetters.push(letter);
-			remainingGuesses--;
-			checkWin();
-				
-		} else {
+		
 
-			for (let i = 0; i < currentWordLetters.length; i++) {
+			if (currentWordLetters.indexOf(letter) === -1 && wrongLetters.indexOf(letter) === -1) {
+				wrongLetters.push(letter);
+				remainingGuesses--;
+				checkWin();
+					
+			} else {
 
-				if (letter === currentWordLetters[i]) {
-					underscoreArray[i] = letter;
-					remainingGuesses--;
-					checkWin();
+				for (let i = 0; i < currentWordLetters.length; i++) {
+
+					if (letter === currentWordLetters[i] && underscoreArray.indexOf(letter) === -1) {
+						underscoreArray[i] = letter;
+						remainingGuesses--;
+						checkWin();
+					}
+
+					if (wrongLetters[i] == letter) {
+						remainingGuesses + 0;
+					}
+
 				}
 
-				if (wrongLetters[i] == letter) {
-					remainingGuesses + 0;
-				}
+		
 
-			}
-
-
-		}
+	}
 
 
 		// html
@@ -151,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 	function playHintSound () {
 
-		if (currentWord === "kirby") {
+				if (currentWord === "kirby") {
 
 					kirbySound.play();
 
@@ -171,10 +174,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 				}
 
-				if (currentWord === "triforce") {
+				if (currentWord === "gameboy") {
 
-					triforceSound.play();
-					document.querySelector(".triforce-photo").style.visibility = "visible";
+					gameboySound.play();
+					document.querySelector(".gameboy-photo").style.visibility = "visible";
 
 				}
 
@@ -185,10 +188,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 				}
 
-				if (currentWord === "shyguy") {
+				if (currentWord === "yoshi") {
 
-					shyguySound.play();
-					document.querySelector(".shyguy-photo").style.visibility = "visible";
+					yoshiSound.play();
+					document.querySelector(".yoshi-photo").style.visibility = "visible";
 
 				}
 	}
@@ -215,8 +218,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	startGame();
 
 	window.addEventListener("keyup", function(event) {
-		checkLetters(event.key);
-		console.log(event.key);
+		if(event.keyCode >= 65 && event.keyCode <= 90){
+			checkLetters(event.key);
+			console.log(event.key);
+		}
 
 		
 
