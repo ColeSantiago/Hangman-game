@@ -111,16 +111,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 	}
-
-
 	
 
 		function checkWin () {
 			
 				if (underscoreArray.indexOf('_') === -1) {
 					wins++;
-					resetGame();
 					playWinSound();
+					resetGame();
+					
+					
+
 
 				} else if (remainingGuesses === 0) {
 					losses++;
@@ -132,8 +133,62 @@ document.addEventListener("DOMContentLoaded", function(event) {
 					console.log("Did not win or lose")
 				}
 
+				
+
 
 		}
+
+		let kirbyAnswer = ["k", "i", "r", "b", "y"];
+		console.log(kirbyAnswer);
+
+
+		function photoReveal () {
+
+			if (underscoreArray.length !== kirbyAnswer.length) {
+
+				for (let i = 0; i < underscoreArray.length; i++) {
+
+					if (underscoreArray[i] !== kirbyAnswer[i]){
+					document.querySelector(".kirby-photo").style.visibility = "visible";
+					console.log(underscoreArray);
+					}
+
+				}
+
+			}
+
+
+		 	// 	if (underscoreArray === "k", "i", "r", "b", "y") {
+				// 	document.querySelector(".kirby-photo").style.visibility = "visible";
+				// 	console.log(underscoreArray);
+				// }
+
+				// 	 if (underscoreArray === "b", "o", "w", "s", "e", "r") {
+				// 	document.querySelector(".bowser-photo").style.visibility = "visible";
+				// 	console.log(underscoreArray);
+				// }
+
+				// 	 if (underscoreArray === "z", "e", "l", "d", "a") {
+				// 	document.querySelector(".zelda-photo").style.visibility = "visible";
+				// 	console.log(underscoreArray);
+				// }
+
+				// 	 if (underscoreArray === "y", "o", "s", "h", "i") {
+				// 	document.querySelector(".yoshi-photo").style.visibility = "visible";
+				// 	console.log(underscoreArray);
+				// }
+
+				// 	 if (underscoreArray === "g", "a", "m", "e", "b", "o", "y") {
+				// 	document.querySelector(".gameboy-photo").style.visibility = "visible";
+				// 	console.log(underscoreArray);
+				// }
+
+				// 	if (underscoreArray === "s", "o", "n", "i", "c") {
+				// 	document.querySelector(".sonic-photo").style.visibility = "visible";
+				// 	console.log(underscoreArray);
+				// }
+
+	}
 
 
 	// reset button
@@ -147,6 +202,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		underscoreArray = [];
 		wrongLetters = [];
 		startGame();
+		document.querySelector(".kirby-photo").style.visibility = "hidden";
+		document.querySelector(".bowser-photo").style.visibility = "hidden";
+		document.querySelector(".zelda-photo").style.visibility = "hidden";
+		document.querySelector(".yoshi-photo").style.visibility = "hidden";
+		document.querySelector(".gameboy-photo").style.visibility = "hidden";
+		document.querySelector(".sonic-photo").style.visibility = "hidden";
+					
+
 	}
 
 
@@ -163,59 +226,47 @@ document.addEventListener("DOMContentLoaded", function(event) {
 				if (currentWord === "bowser") {
 
 					bowserSound.play();
-					document.querySelector(".bowser-photo").style.visibility = "visible";
+					
 
 				}
 
 				if (currentWord === "zelda") {
 
 					zeldaSound.play();
-					document.querySelector(".zelda-photo").style.visibility = "visible";
+					
 
 				}
 
 				if (currentWord === "gameboy") {
 
 					gameboySound.play();
-					document.querySelector(".gameboy-photo").style.visibility = "visible";
+					
 
 				}
 
 				if (currentWord === "sonic") {
 
 					sonicSound.play();
-					document.querySelector(".sonic-photo").style.visibility = "visible";
+					
 
 				}
 
 				if (currentWord === "yoshi") {
 
 					yoshiSound.play();
-					document.querySelector(".yoshi-photo").style.visibility = "visible";
+					
 
 				}
 	}
 
 
- // function photoReveal () {
- // 	document.querySelector(".shyguy-photo").style.visibility = "visible";
-
- // }
-
-
 
 	document.querySelector("#hint").addEventListener("click", playHintSound);
-	// document.querySelector("#hint").addEventListener("click", photoReveal);
-
-
-
-
-    // Make sure the hangman image is cleared
-    // document.getElementById("hangmanImage").src = "";
 
     
     // calling the game funtions
 	startGame();
+	
 
 	window.addEventListener("keyup", function(event) {
 		if(event.keyCode >= 65 && event.keyCode <= 90){
