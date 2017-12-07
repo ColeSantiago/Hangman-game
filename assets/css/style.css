@@ -73,6 +73,7 @@ h2 {
 	left: 1005px;
 	top: 239px;
 	position: fixed;
+	z-index: 6;
 
 }
 
@@ -98,6 +99,7 @@ h2 {
 	left: 880px;
 	top: 232px;
 	position: fixed;
+	z-index: 5;
 }
 
 #reset:hover {
@@ -123,6 +125,54 @@ h2 {
 	font-size: 25px;
 	left: 1216px;
 	top: 75px;
+}
+
+
+.bowser-photo {
+	width: 200px;
+	right: -1349px;
+	visibility: hidden;
+
+
+}
+
+.sonic-photo {
+	width: 200px;
+	right: -1156px;
+	top: 92px;
+	visibility: hidden;
+	
+
+}
+
+.kirby-photo {
+	width: 200px;
+	right: -942px;
+	visibility: hidden;
+
+}
+
+.shyguy-photo {
+	width: 200px;
+	right: -726px;
+	visibility: hidden;
+
+}
+
+
+.triforce-photo {
+	width: 200px;
+	right: -530px;
+	top: -80px;
+	visibility: hidden;
+
+}
+
+.zelda-photo {
+	width: 200px;
+	right: -328px;
+	visibility: hidden;
+
 }
 
 

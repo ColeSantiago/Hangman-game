@@ -1,9 +1,10 @@
 document.addEventListener("DOMContentLoaded", function(event) { 
   
 
-
+	// potential words
 	const gameWords = ['bowser', 'zelda', 'kirby', 'triforce', 'shyguy', 'sonic'];
 
+	// getting the variables and empty arrays ready
 	let remainingGuesses = 15;
 	let wins = 0;
 	let losses = 0;
@@ -60,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		
 		}
 		
-
+		// html
 		document.querySelector("#wins").innerHTML = wins;
 		document.querySelector("#losses").innerHTML = losses;
 		document.querySelector("#current-word").innerHTML = underscoreArray;
@@ -75,9 +76,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 		if (currentWordLetters.indexOf(letter) === -1) {
 			wrongLetters.push(letter);
-			// console.log(wrongLetters);
 			remainingGuesses--;
-			// console.log(remainingGuesses);
 			checkWin();
 				
 		} else {
@@ -86,9 +85,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 				if (letter === currentWordLetters[i]) {
 					underscoreArray[i] = letter;
-					// console.log(underscoreArray);
 					remainingGuesses--;
-					// console.log(remainingGuesses);
 					checkWin();
 				}
 
@@ -102,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		}
 
 
-
+		// html
 		document.querySelector("#wins").innerHTML = wins;
 		document.querySelector("#losses").innerHTML = losses;
 		document.querySelector("#current-word").innerHTML = underscoreArray;
@@ -115,26 +112,28 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 	
 
-	function checkWin () {
-		
-			if (underscoreArray.indexOf('_') === -1) {
-				wins++;
-				resetGame();
-				playWinSound();
+		function checkWin () {
+			
+				if (underscoreArray.indexOf('_') === -1) {
+					wins++;
+					resetGame();
+					playWinSound();
 
-			} else if (remainingGuesses === 0) {
-				losses++;
-				resetGame();
-				playloseSound();
-				
+				} else if (remainingGuesses === 0) {
+					losses++;
+					resetGame();
+					playloseSound();
+					
 
-			} else {
-				console.log("Did not win or lose")
-			}
+				} else {
+					console.log("Did not win or lose")
+				}
 
 
-	}
+		}
 
+
+	// reset button
 	document.querySelector("#reset").addEventListener("click", resetGame);
 
 
@@ -147,6 +146,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		startGame();
 	}
 
+
+	// hint button
+
 	function playHintSound () {
 
 		if (currentWord === "kirby") {
@@ -158,36 +160,49 @@ document.addEventListener("DOMContentLoaded", function(event) {
 				if (currentWord === "bowser") {
 
 					bowserSound.play();
+					document.querySelector(".bowser-photo").style.visibility = "visible";
 
 				}
 
 				if (currentWord === "zelda") {
 
 					zeldaSound.play();
+					document.querySelector(".zelda-photo").style.visibility = "visible";
 
 				}
 
 				if (currentWord === "triforce") {
 
 					triforceSound.play();
+					document.querySelector(".triforce-photo").style.visibility = "visible";
 
 				}
 
 				if (currentWord === "sonic") {
 
 					sonicSound.play();
+					document.querySelector(".sonic-photo").style.visibility = "visible";
 
 				}
 
 				if (currentWord === "shyguy") {
 
 					shyguySound.play();
+					document.querySelector(".shyguy-photo").style.visibility = "visible";
 
 				}
 	}
 
 
+ // function photoReveal () {
+ // 	document.querySelector(".shyguy-photo").style.visibility = "visible";
+
+ // }
+
+
+
 	document.querySelector("#hint").addEventListener("click", playHintSound);
+	// document.querySelector("#hint").addEventListener("click", photoReveal);
 
 
 
@@ -195,9 +210,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // Make sure the hangman image is cleared
     // document.getElementById("hangmanImage").src = "";
 
-    // Build the guessing word and clear it out
     
-
+    // calling the game funtions
 	startGame();
 
 	window.addEventListener("keyup", function(event) {
