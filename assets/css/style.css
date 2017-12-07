@@ -3,10 +3,6 @@
 	position: relative;
 }
 
-font-family: 'Bowlby One SC', cursive;
-font-family: 'Anton', sans-serif;
-font-family: 'Archivo Black', sans-serif;
-
 body {
   min-height: 100%;
   min-width: 1024px;
@@ -66,6 +62,30 @@ h2 {
 	margin-bottom: 5px;
 }
 
+#hint {
+	border-radius: 15px;
+	font-family: 'Ubuntu', sans-serif;
+	padding: 12px;
+	width: 100px;
+	background: #3d9240;
+	box-shadow: 3px 0 0 #222;
+	text-align: center;
+	left: 1005px;
+	top: 239px;
+	position: fixed;
+
+}
+
+#hint:hover {
+	background: #a59d43;
+	box-shadow: 5px 0 0 #222;
+	cursor: pointer;
+}
+
+#hint:active {
+	background: #94f711;
+}
+
 
 #reset {
 	border-radius: 15px;
@@ -83,6 +103,7 @@ h2 {
 #reset:hover {
 	background: #a59d43;
 	box-shadow: 5px 0 0 #222;
+	cursor: pointer;
 }
 
 #reset:active {

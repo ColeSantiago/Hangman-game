@@ -12,17 +12,44 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	let underscoreArray = [];
 	let wrongLetters = [];
 
+	
+	// Hint sounds
 	let kirbySound = new Audio('assets/javascript/audio/Kirby-Swallowing.wav');
 	let bowserSound = new Audio('assets/javascript/audio/Bowser1.wav');
 	let zeldaSound = new Audio('assets/javascript/audio/MC_Zelda_Hey.wav');
 	let triforceSound = new Audio('assets/javascript/audio/OOT_HandTriforce.wav');
 	let shyguySound = new Audio('assets/javascript/audio/mparty8_shy_guy_03.wav');
 	let sonicSound = new Audio('assets/javascript/audio/S3K_AC.wav');
-	
-	
-	
-	
 
+	// Win Sounds
+	let congratulationsSound = new Audio('assets/javascript/audio/win/mk64_mario_a11.wav');
+	let gotItSound = new Audio('assets/javascript/audio/win/mk64_mario08.wav');
+	let toadYeaSound = new Audio('assets/javascript/audio/win/mk64_toad06.wav');
+	let toadBestSound = new Audio('assets/javascript/audio/win/mk64_toad07.wav');
+	
+	// Lose Sounds
+	let marioLoseSound = new Audio('assets/javascript/audio/lose/mk64_mario05.wav');
+	let toadLoseSound = new Audio('assets/javascript/audio/lose/mk64_toad04.wav');
+	let warioLoseSound = new Audio('assets/javascript/audio/lose/mk64_wario05.wav');
+
+	// sound arrays and functions
+	let winSounds = [congratulationsSound, gotItSound, toadYeaSound, toadBestSound];
+	let loseSounds = [marioLoseSound, toadLoseSound, warioLoseSound];
+
+	function playWinSound () {
+		let currentSound = winSounds[Math.floor(Math.random() * winSounds.length)];
+		currentSound.play();
+
+	}
+
+	function playloseSound () {
+		let currentSound = loseSounds[Math.floor(Math.random() * loseSounds.length)];
+		currentSound.play();
+
+	}
+
+	
+	//game functions
 	function startGame () {
 		remainingGuesses = 15;
 		currentWord = gameWords[Math.floor(Math.random() * gameWords.length)];
@@ -93,10 +120,36 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			if (underscoreArray.indexOf('_') === -1) {
 				wins++;
 				resetGame();
+				playWinSound();
 
-			
+			} else if (remainingGuesses === 0) {
+				losses++;
+				resetGame();
+				playloseSound();
+				
 
-				if (currentWord === "kirby") {
+			} else {
+				console.log("Did not win or lose")
+			}
+
+
+	}
+
+	document.querySelector("#reset").addEventListener("click", resetGame);
+
+
+
+	function resetGame (reset) {
+    	
+  		currentWordLetters = [];
+		underscoreArray = [];
+		wrongLetters = [];
+		startGame();
+	}
+
+	function playHintSound () {
+
+		if (currentWord === "kirby") {
 
 					kirbySound.play();
 
@@ -131,34 +184,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
 					shyguySound.play();
 
 				}
-
-				
-				
-				// console.log(wins);
-				// console.log("you won");
-
-			} else if (remainingGuesses === 0) {
-				losses++;
-				resetGame();
-				
-				// console.log(losses);
-
-			} else {
-				console.log("Did not win or lose")
-			}
-
-
 	}
 
 
+	document.querySelector("#hint").addEventListener("click", playHintSound);
 
-	function resetGame (reset) {
-    	
-  		currentWordLetters = [];
-		underscoreArray = [];
-		wrongLetters = [];
-		startGame();
-	}
+
 
 
     // Make sure the hangman image is cleared
@@ -172,6 +203,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	window.addEventListener("keyup", function(event) {
 		checkLetters(event.key);
 		console.log(event.key);
+
 		
 
 
