@@ -12,6 +12,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	let underscoreArray = [];
 	let wrongLetters = [];
 
+	let kirbySound = new Audio('assets/javascript/audio/Kirby-Swallowing.wav');
+	let bowserSound = new Audio('assets/javascript/audio/Bowser1.wav');
+	let zeldaSound = new Audio('assets/javascript/audio/MC_Zelda_Hey.wav');
+	let triforceSound = new Audio('assets/javascript/audio/OOT_HandTriforce.wav');
+	let shyguySound = new Audio('assets/javascript/audio/mparty8_shy_guy_03.wav');
+	let sonicSound = new Audio('assets/javascript/audio/S3K_AC.wav');
+	
+	
 	
 	
 
@@ -85,6 +93,47 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			if (underscoreArray.indexOf('_') === -1) {
 				wins++;
 				resetGame();
+
+			
+
+				if (currentWord === "kirby") {
+
+					kirbySound.play();
+
+				}
+
+				if (currentWord === "bowser") {
+
+					bowserSound.play();
+
+				}
+
+				if (currentWord === "zelda") {
+
+					zeldaSound.play();
+
+				}
+
+				if (currentWord === "triforce") {
+
+					triforceSound.play();
+
+				}
+
+				if (currentWord === "sonic") {
+
+					sonicSound.play();
+
+				}
+
+				if (currentWord === "shyguy") {
+
+					shyguySound.play();
+
+				}
+
+				
+				
 				// console.log(wins);
 				// console.log("you won");
 
@@ -98,7 +147,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 				console.log("Did not win or lose")
 			}
 
+
 	}
+
+
 
 	function resetGame (reset) {
     	
