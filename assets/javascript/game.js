@@ -12,6 +12,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	let underscoreArray = [];
 	let wrongLetters = [];
 
+	
+	
+
 	function startGame () {
 		remainingGuesses = 15;
 		currentWord = gameWords[Math.floor(Math.random() * gameWords.length)];
@@ -21,24 +24,25 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			underscoreArray.push("_");
 		
 		}
-		console.log(remainingGuesses);
-		console.log(currentWordLetters);
-		console.log(currentWord);
-		console.log(underscoreArray);
-
-		// // add in html
-
 		
 
+		document.querySelector("#wins").innerHTML = wins;
+		document.querySelector("#losses").innerHTML = losses;
+		document.querySelector("#current-word").innerHTML = underscoreArray;
+		document.querySelector("#remaining-guesses").innerHTML = remainingGuesses;
+		document.querySelector("#wrong-letters").innerHTML = wrongLetters;
+
 	}
+
+
 
 	function checkLetters (letter) {
 		for (let i = 0; i < currentWordLetters.length; i++) {
 
 			if (letter === currentWordLetters[i]) {
 				underscoreArray[i] = letter;
-				console.log(underscoreArray);
-				// remainingGuesses--;
+				// console.log(underscoreArray);
+				remainingGuesses--;
 				// console.log(remainingGuesses);
 				checkWin();
 				
@@ -46,11 +50,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 			else {
 				wrongLetters.push(letter);
-				// remainingGuesses--;
+				remainingGuesses--;
 				// console.log(remainingGuesses);
 				checkWin();
 				
 			}
+
+		document.querySelector("#wins").innerHTML = wins;
+		document.querySelector("#losses").innerHTML = losses;
+		document.querySelector("#current-word").innerHTML = underscoreArray;
+		document.querySelector("#remaining-guesses").innerHTML = remainingGuesses;
+		document.querySelector("#wrong-letters").innerHTML = wrongLetters;
 
 
 		}
@@ -62,13 +72,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		
 			if (underscoreArray.indexOf('_') === -1) {
 				wins++;
-				console.log(wins);
-				console.log("you won");
+				// console.log(wins);
+				// console.log("you won");
 
 			} else if (remainingGuesses === 0) {
 				losses++;
 				
-				console.log(losses);
+				// console.log(losses);
 
 			} else {
 				console.log("Did not win or lose")
@@ -96,31 +106,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 
-});
-
-
-
-
-
-
-
-
-
-
-
-
-	// let htmlOne = "<p>Press any key to get started!</p>" + "<p> Wins: " + wins + 
-	// 	"</p>" + "<p> Losses: " + losses + "<p>Current Word</p>" + "<p>" + underscoreArray + 
-	// 	"</p>" +"<p>Number of guesses remaining: " + remainingGuesses + "</p>" + "<p>Letters already guessed: " 
-	// 	+ wrongLetters + "</p>";
-
-	
-	// 	document.querySelector("#game").innerHTML = htmlOne;
-
-	
-
-
-
-
-
-	
+});	
