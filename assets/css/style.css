@@ -1,3 +1,109 @@
-#letters {
-	
+* {
+	box-sizing: border-box;
+	position: relative;
 }
+
+font-family: 'Bowlby One SC', cursive;
+font-family: 'Anton', sans-serif;
+font-family: 'Archivo Black', sans-serif;
+
+body {
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.nintendo {
+	width: 500px;
+	position: fixed;
+	left: -10px;
+}
+
+.header {
+	font-family: 'Archivo Black', sans-serif;
+	color: red;
+	font-size: 100px;
+	text-shadow: 3px 0 0 #222;
+	margin-top: 20px;
+	position: fixed;
+	left: 79px;
+
+}
+
+h2 {
+	left: 406px;
+	top:44px;
+}
+
+.anyKey {
+	font-family: 'Anton', sans-serif;
+	font-size: 30px;
+	left: 705px;
+	top: 91px;
+}
+
+.counters {
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 20px; 
+	top: 117px;
+	left: 881px;
+
+}
+
+.win {
+	margin-bottom: 5px;
+}
+
+.lose {
+	margin-bottom: 5px;
+}
+
+.Guesses {
+	margin-bottom: 5px;
+}
+
+
+#reset {
+	border-radius: 15px;
+	font-family: 'Ubuntu', sans-serif;
+	padding: 10px;
+	width: 100px;
+	background: #3d9240;
+	box-shadow: 3px 0 0 #222;
+	text-align: center;
+	left: 880px;
+	top: 232px;
+	position: fixed;
+}
+
+#reset:hover {
+	background: #a59d43;
+	box-shadow: 5px 0 0 #222;
+}
+
+#reset:active {
+	background: #94f711;
+}
+
+.theWord {
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 35px;
+	right: -1218px;
+	top: 34px;
+
+}
+
+.garbage {
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 25px;
+	left: 1216px;
+	top: 75px;
+}
+
+
+
+

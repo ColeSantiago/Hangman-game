@@ -2,35 +2,50 @@
 <html>
 <head>
 	<title>Hangman Game!</title>
+	<link href="https://fonts.googleapis.com/css?family=Anton|Archivo+Black|Ubuntu" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	
 </head>
-<body>
+<body background="assets/images/nintendo-backgrounds.jpg">
+	
+	<div class="header">
 
-	<h1>Hangman</h1>
+		<h1>Hangman</h1>
 
-	<h2>Nintendo style</h2>
+		<img class="nintendo" src="assets/images/Nintendo-Logo.png">
 
-		<div id="game">
+		<h2>Style</h2>
 
-			<div>Press any key to get started!</div>
+	</div>
 
-			<div>Wins: <span id="wins"></span></div>
+			<div id="game">
 
-			<div>Losses: <span id="losses"></span></div>
+				<div class="anyKey">Press any key to get started!</div>
 
-			<div>Current Word</div>
 
-			<div id="current-word"></div>
+					<div class="counters">
+						<div class="win">Wins: <span id="wins"></span></div>
+						<div class="lose">Losts: <span id="losses"></span></div>
+						<div class="Guesses">Remaining Guesses: <span id="remaining-guesses"></span></div>
+					</div>
 
-			<div>Remaining Guesses: <span id="remaining-guesses"></span></div>
 
-			<div>Letters already guessed: <span id="wrong-letters"></span></div>
+					<div class="theWord">
+						<div class="current">Current Word:</div>
+						<div id="current-word"></div>
+					</div>
 
-			<div id="reset">Give me another word!</div>
 
-		</div>
+					<div class="garbage">
+						<div class="alreadyGuessed">Letters already guessed: </div>
+						<div id="wrong-letters"></div>
+					</div>
+
+
+					<div id="reset">Give me another word!</div>
+
+			</div>
 
 
 
