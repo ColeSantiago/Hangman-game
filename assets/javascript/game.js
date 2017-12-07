@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   
 
 
-	const gameWords = ['bowser', 'zelda', 'kirby'];
+	const gameWords = ['bowser', 'zelda', 'kirby', 'triforce', 'shyguy', 'sonic'];
 
 	let remainingGuesses = 15;
 	let wins = 0;
@@ -37,24 +37,36 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 	function checkLetters (letter) {
-		for (let i = 0; i < currentWordLetters.length; i++) {
 
-			if (letter === currentWordLetters[i]) {
-				underscoreArray[i] = letter;
-				// console.log(underscoreArray);
-				remainingGuesses--;
-				// console.log(remainingGuesses);
-				checkWin();
+		if (currentWordLetters.indexOf(letter) === -1) {
+			wrongLetters.push(letter);
+			// console.log(wrongLetters);
+			remainingGuesses--;
+			// console.log(remainingGuesses);
+			checkWin();
 				
+		} else {
+
+			for (let i = 0; i < currentWordLetters.length; i++) {
+
+				if (letter === currentWordLetters[i]) {
+					underscoreArray[i] = letter;
+					// console.log(underscoreArray);
+					remainingGuesses--;
+					// console.log(remainingGuesses);
+					checkWin();
+				}
+
+				if (wrongLetters[i] == letter) {
+					remainingGuesses + 0;
+				}
+
 			}
 
-			else {
-				wrongLetters.push(letter);
-				remainingGuesses--;
-				// console.log(remainingGuesses);
-				checkWin();
-				
-			}
+
+		}
+
+
 
 		document.querySelector("#wins").innerHTML = wins;
 		document.querySelector("#losses").innerHTML = losses;
@@ -63,34 +75,45 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		document.querySelector("#wrong-letters").innerHTML = wrongLetters;
 
 
-		}
-
-
 	}
+
+
+	
 
 	function checkWin () {
 		
 			if (underscoreArray.indexOf('_') === -1) {
 				wins++;
+				resetGame();
 				// console.log(wins);
 				// console.log("you won");
 
 			} else if (remainingGuesses === 0) {
 				losses++;
+				resetGame();
 				
 				// console.log(losses);
 
 			} else {
 				console.log("Did not win or lose")
 			}
-		
-		
-		
-		// if underscoreArray matches current word letters win++ 
-		// else if remaining guesses = 0 restart game, losses++
-		//else console.log did not win or lose
 
 	}
+
+	function resetGame (reset) {
+    	
+  		currentWordLetters = [];
+		underscoreArray = [];
+		wrongLetters = [];
+		startGame();
+	}
+
+
+    // Make sure the hangman image is cleared
+    // document.getElementById("hangmanImage").src = "";
+
+    // Build the guessing word and clear it out
+    
 
 	startGame();
 
@@ -99,11 +122,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		console.log(event.key);
 		
 
+
 	});
-		
-
-
-
-
 
 });	
