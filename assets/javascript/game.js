@@ -70,6 +70,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 	}
 
+	
+
  
 
 	function checkLetters (letter) {
@@ -80,6 +82,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 				wrongLetters.push(letter);
 				remainingGuesses--;
 				checkWin();
+				hintReveal();
+
 					
 			} else {
 
@@ -89,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 						underscoreArray[i] = letter;
 						remainingGuesses--;
 						checkWin();
+						
 					}
 
 					if (wrongLetters[i] == letter) {
@@ -202,6 +207,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		underscoreArray = [];
 		wrongLetters = [];
 		startGame();
+		document.querySelector("#hint").style.display = "none";
 		document.querySelector(".kirby-photo").style.visibility = "hidden";
 		document.querySelector(".bowser-photo").style.visibility = "hidden";
 		document.querySelector(".zelda-photo").style.visibility = "hidden";
@@ -214,6 +220,22 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 	// hint button
+
+	function hintReveal () {
+
+		let amount = 5;
+
+				
+			for (let i = 3; i < wrongLetters.length; i++)
+				if ( wrongLetters[i] < amount) {
+					console.log("you get no hints");
+				}
+
+				else {
+					
+					document.querySelector("#hint").style.display = "block";
+				}
+	}
 
 	function playHint () {
 
