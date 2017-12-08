@@ -138,10 +138,10 @@ h2 {
 
 }
 
-.sonic-photo {
+.chomp-photo {
 	width: 200px;
-	right: -1156px;
-	top: 92px;
+	right: -1115px;
+	top: -88px;
 	visibility: hidden;
 	filter: blur(16px);
 	
@@ -180,6 +180,93 @@ h2 {
 	right: -328px;
 	visibility: hidden;
 	filter: blur(16px);
+
+}
+
+
+@media (max-width: 980px) {
+	.header {
+		font-size: 64px;
+		left: 79px;
+	}
+
+	.nintendo {
+		width: 447px;
+		left: 22px;
+	}
+
+	.anyKey {
+		left: 82px;
+		top: 236px;
+	}
+
+	.counters {
+		top: 190px;
+		left: 481px;
+	}
+
+	.theWord {
+		right: -51px;
+		top: 216px;
+	}
+
+	.garbage {
+		left: 13px;
+		top: 254px;
+	}
+
+	#reset {
+		left: 710px;
+		top: 232px;
+	}
+
+	#hint {
+		left: 840px;
+		top: 239px;
+	}
+
+	.bowser-photo {
+		right: -503px;
+
+	}
+
+	.chomp-photo {
+		right: -250px;
+		top: -68px;
+	}
+
+	.kirby-photo {
+		right: -87px;
+	}
+
+	.yoshi-photo {
+		right: 113px;
+		top: 98px;
+	}
+
+	.gameboy-photo {
+		right: 314px;
+		top: 51px;
+	}
+
+	.zelda-photo {
+		top: -198px;
+		right: -498px;
+	}
+
+	}
+
+
+
+@media (max-width: 768px) {
+
+
+}
+
+
+
+@media (max-width: 640px) {
+
 
 }
 
