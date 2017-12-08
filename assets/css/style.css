@@ -132,6 +132,7 @@ h2 {
 	width: 200px;
 	right: -1349px;
 	visibility: hidden;
+	filter: blur(14px);
 
 
 }
@@ -141,6 +142,7 @@ h2 {
 	right: -1156px;
 	top: 92px;
 	visibility: hidden;
+	filter: blur(14px);
 	
 
 }
@@ -149,6 +151,7 @@ h2 {
 	width: 200px;
 	right: -942px;
 	visibility: hidden;
+	filter: blur(14px);
 
 }
 
@@ -157,6 +160,7 @@ h2 {
 	right: -726px;
 	top: 98px;
 	visibility: hidden;
+	filter: blur(14px);
 
 }
 
@@ -166,6 +170,7 @@ h2 {
 	right: -530px;
 	top: 51px;
 	visibility: hidden;
+	filter: blur(14px);
 
 }
 
@@ -173,6 +178,7 @@ h2 {
 	width: 200px;
 	right: -328px;
 	visibility: hidden;
+	filter: blur(14px);
 
 }
 

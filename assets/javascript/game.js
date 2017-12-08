@@ -215,44 +215,44 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 	// hint button
 
-	function playHintSound () {
+	function playHint () {
 
 				if (currentWord === "kirby") {
-
+					document.querySelector(".kirby-photo").style.visibility = "visible";
 					kirbySound.play();
 
 				}
 
 				if (currentWord === "bowser") {
-
+					document.querySelector(".bowser-photo").style.visibility = "visible";
 					bowserSound.play();
 					
 
 				}
 
 				if (currentWord === "zelda") {
-
+					document.querySelector(".zelda-photo").style.visibility = "visible";
 					zeldaSound.play();
 					
 
 				}
 
 				if (currentWord === "gameboy") {
-
+					document.querySelector(".gameboy-photo").style.visibility = "visible";
 					gameboySound.play();
 					
 
 				}
 
 				if (currentWord === "sonic") {
-
+					document.querySelector(".sonic-photo").style.visibility = "visible";
 					sonicSound.play();
 					
 
 				}
 
 				if (currentWord === "yoshi") {
-
+					document.querySelector(".yoshi-photo").style.visibility = "visible";
 					yoshiSound.play();
 					
 
@@ -261,7 +261,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 
-	document.querySelector("#hint").addEventListener("click", playHintSound);
+	document.querySelector("#hint").addEventListener("click", playHint);
 
     
     // calling the game funtions
