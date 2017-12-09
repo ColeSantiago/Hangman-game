@@ -134,10 +134,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 	// reset button
-	document.querySelector("#reset").addEventListener("click", resetGame);
-
-
-
 	function resetGame (reset) {
     	
   		currentWordLetters = [];
@@ -229,7 +225,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			checkLetters(event.key);
 			console.log(event.key);
 		}
-	document.querySelector("#hint").addEventListener("click", playHint);	
+	document.querySelector("#hint").addEventListener("click", playHint);
+
+	document.querySelector("#reset").addEventListener("click", resetGame);
 
 	});
 

@@ -254,19 +254,101 @@ h2 {
 		right: -498px;
 	}
 
-	}
+}
 
 
 
 @media (max-width: 768px) {
 
+	#reset {
+		left: 27px;
+		top: 511px;
+	}
+
+	#hint {
+		left: 169px;
+		top: 521px;
+	}
 
 }
 
 
 
 @media (max-width: 640px) {
+	.header {
+		font-size: 44px;
+		left: 71px;
+	}
 
+	.nintendo {
+		width: 241px;
+		left: 63px;
+	}
+
+	h2 {
+		left: 43px;
+		top: 79px;
+	}
+
+	.anyKey {
+		left: 46px;
+		top: 198px;
+		font-size: 24px;
+	}
+
+	.counters {
+		top: 204px;
+		left: 12px;
+		font-size: 17px;
+	}
+
+	#reset {
+		left: 199px;
+		top: 241px;
+		font-size: 10px;
+		width: 70px;
+	}
+
+	#hint {
+		left: 281px;
+		top: 246px;
+		font-size: 10px;
+		width: 70px;
+	}
+
+	.bowser-photo {
+		right: -80px;
+		top: 221px;
+		width: 193px;
+	}
+
+	.chomp-photo {
+		right: 103px;
+		top: 132px;
+	}
+
+	.kirby-photo {
+		right: 328px;
+		top: 218px;
+		width: 190px;
+	}
+
+	.yoshi-photo {
+		right: 490px;
+		top: 248px;
+		width: 150px;
+	}
+
+	.gameboy-photo {
+		right: 650px;
+		top: 248px;
+		width: 170px;
+	}
+
+	.zelda-photo {
+		top: 60px;
+		right: -100px;
+	}
 
 }
 
